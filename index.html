@@ -3,50 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MyStore - Simple Amazon Clone</title>
+  <title>MyStore - Modern Amazon Clone</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <div class="navbar">
+    <nav class="navbar">
       <div class="logo">MyStore</div>
-      <input type="text" class="search-bar" placeholder="Search products..." />
+      <form class="search-form">
+        <input type="text" class="search-bar" placeholder="Search for products..." />
+        <button type="submit" class="search-btn">🔍</button>
+      </form>
       <div class="nav-links">
         <a href="#">Login</a>
-        <a href="#">Cart (0)</a>
+        <a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
       </div>
-    </div>
+    </nav>
   </header>
 
   <section class="banner">
-    <h1>Big Sale Today!</h1>
-    <p>Up to 50% off on electronics and more</p>
+    <h1>🔥 Summer Mega Sale!</h1>
+    <p>Save up to <strong>60%</strong> on top electronics and gadgets. Limited time only!</p>
+    <button class="banner-btn">Shop Now</button>
   </section>
 
   <main class="products">
     <div class="product-card">
-      <img src="https://via.placeholder.com/200" alt="Product 1" />
-      <h3>Product 1</h3>
-      <p>$19.99</p>
-      <button>Add to Cart</button>
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Headphones" />
+      <h3>Wireless Headphones</h3>
+      <p class="price">$59.99</p>
+      <button class="add-cart-btn">Add to Cart</button>
     </div>
     <div class="product-card">
-      <img src="https://via.placeholder.com/200" alt="Product 2" />
-      <h3>Product 2</h3>
-      <p>$29.99</p>
-      <button>Add to Cart</button>
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Smartwatch" />
+      <h3>Smartwatch Pro</h3>
+      <p class="price">$129.99</p>
+      <button class="add-cart-btn">Add to Cart</button>
     </div>
     <div class="product-card">
-      <img src="https://via.placeholder.com/200" alt="Product 3" />
-      <h3>Product 3</h3>
-      <p>$39.99</p>
-      <button>Add to Cart</button>
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Camera" />
+      <h3>DSLR Camera</h3>
+      <p class="price">$499.99</p>
+      <button class="add-cart-btn">Add to Cart</button>
     </div>
-    <!-- Add more products as needed -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80" alt="Laptop" />
+      <h3>Ultra Laptop</h3>
+      <p class="price">$899.99</p>
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
   </main>
 
   <footer>
     <p>&copy; 2025 MyStore. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Simple cart counter
+    let cartCount = 0;
+    document.querySelectorAll('.add-cart-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cartCount++;
+        document.getElementById('cart-count').innerText = cartCount;
+      });
+    });
+    // Prevent form submit reload
+    document.querySelector('.search-form').addEventListener('submit', e => e.preventDefault());
+  </script>
 </body>
 </html>
